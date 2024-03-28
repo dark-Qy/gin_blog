@@ -4,6 +4,7 @@ package models
 // 结构体中，首字母大写相当于public，首字母小写相当于private(相对于包来说)
 type User struct {
 	// 添加Json渲染
+	UserId   int    `json:"userId"`
 	UserName string `json:"userName"`
 	Password string `json:"password"`
 }
