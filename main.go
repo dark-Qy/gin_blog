@@ -7,10 +7,9 @@ package main
 
 import (
 	"fmt"
-	"gin_learn/controller"
 	"gin_learn/dao"
 	"gin_learn/models"
-	"github.com/gin-gonic/gin"
+	"gin_learn/routers"
 	"net/http"
 )
 
@@ -22,8 +21,6 @@ func HelloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// 启动gin服务
-	r := gin.Default()
 
 	// 连接数据库
 	err := dao.InitMySQL()
@@ -32,12 +29,10 @@ func main() {
 		return
 	}
 	// 根据模型创建数据库表项
-	dao.DB.AutoMigrate(&models.User{})
-	dao.DB.AutoMigrate(&models.Comment{})
-	dao.DB.AutoMigrate(&models.Blog{})
+	dao.DB.AutoMigrate(&models.User{}, &models.Comment{}, &models.Blog{})
 
-	// 默认主页界面
-	r.GET("/hello", controller.IndexHandler)
+	// 启动gin服务
+	r := routers.SetupRouter()
 
 	// 在指定端口上启动web服务
 	err = r.Run(":18080")
