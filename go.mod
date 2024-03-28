@@ -4,6 +4,8 @@ go 1.22.1
 
 require github.com/gin-gonic/gin v1.9.1
 
+require github.com/jinzhu/inflection v1.0.0 // indirect
+
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
@@ -13,7 +15,9 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.14.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
-	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/jinzhu/gorm v1.9.16
+	github.com/go-sql-driver/mysql v1.7.0
+	github.com/json-iterator/go v1.1.12 // indrect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
