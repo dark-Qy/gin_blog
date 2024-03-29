@@ -24,3 +24,22 @@ func CreateBlog(blog *Blog) (err error) {
 	}
 	return nil
 }
+
+func GetAllBlog(blogList *[]Blog) (err error) {
+	// 从数据库中读取所有的blog
+	err = dao.DB.Debug().Find(&blogList).Error
+	if err != nil {
+		return errors.New("read blog error")
+	}
+	return nil
+}
+
+func GetABlog(blogId int) (blog *Blog, err error) {
+	blog = new(Blog)
+	// 从数据库中读取特定的blog
+	err = dao.DB.Debug().Where("blog_id=?", blogId).First(blog).Error
+	if err != nil {
+		return nil, errors.New("read blog error")
+	}
+	return
+}

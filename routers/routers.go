@@ -32,6 +32,10 @@ func SetupRouter() *gin.Engine {
 		BlogGroup.POST("/update", controller.BlogUpdateHandler)
 		// 删除博客的路由
 		BlogGroup.DELETE("/delete", controller.BlogDeleteHandler)
+		// 查看所有博客的路由
+		BlogGroup.GET("/list", controller.BlogGetAllHandler)
+		// 查看单个博客的路由
+		BlogGroup.GET("/list/id=:id", controller.BlogGetAHandler)
 	}
 	return r
 }

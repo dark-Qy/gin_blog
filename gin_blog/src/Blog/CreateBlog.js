@@ -19,21 +19,6 @@ function BlogPost() {
         });
     };
 
-    const handleTagsChange = (index, value) => {
-        const newTagList = [...blog.tagList];
-        newTagList[index] = value;
-        setBlog({
-            ...blog,
-            tagList: newTagList
-        });
-    };
-
-    const addTagField = () => {
-        setBlog({
-            ...blog,
-            tagList: [...blog.tagList, '']
-        });
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
