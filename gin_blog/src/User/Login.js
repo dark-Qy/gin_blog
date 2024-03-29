@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './LoginForm.css';
+
 
 function Login(message) {
     const [user, setUser] = useState({
@@ -38,9 +40,12 @@ function Login(message) {
             if (response.ok) {
                 // 获取后端返回的数据（如果有）
                 const data = await response.json();
+                // 从data中获取包含的令牌
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('userName', data.userName);
                 if (data.status === 0) {
                     // 使用alert函数显示成功信息
-                    alert(`登录成功！用户${data.user.userName}你好`);
+                    alert(`登录成功！用户${data.userName}你好`);
                 }else {
                     alert(`登录失败！${data.error}`);
                 }
@@ -57,18 +62,29 @@ function Login(message) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
             <h2>登录</h2>
-            <div>
+            <div className="form-group">
                 <label>用户名:</label>
-                <input type="text" name="userName" value={user.userName} onChange={handleChange} />
+                <input
+                    type="text"
+                    name="userName"
+                    value={user.userName}
+                    onChange={handleChange}
+                />
             </div>
-            <div>
+            <div className="form-group">
                 <label>密码:</label>
-                <input type="password" name="password" value={user.password} onChange={handleChange} />
+                <input
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleChange}
+                />
             </div>
-            <button type="submit">登录</button>
+            <button type="submit" className="login-button">登录</button>
         </form>
+
     );
 }
 

@@ -6,6 +6,6 @@ type Comment struct {
 	Blog      Blog   `json:"blog" gorm:"foreignKey:BlogID"`
 	BlogID    int    `gorm:"index"` // 为BlogID创建索引，优化查询性能
 	User      User   `json:"user" gorm:"foreignKey:UserId"`
-	UserId    int    `json:"userId"` // 用于存储User的外键
+	UserName  int    `json:"userName"` // 用于存储User的外键
 	Content   string `json:"content"`
 }

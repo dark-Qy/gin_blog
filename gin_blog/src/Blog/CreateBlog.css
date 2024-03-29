@@ -1,0 +1,91 @@
+/* BlogPost.css */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-field textarea {
+    height: 100px; /* 调整根据需要 */
+}
+
+.title-field textarea,
+.content-field textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.title-field {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.title-field textarea {
+    height: 30px; /* 标题框较小 */
+    font-size: 11px;
+    font-weight: bold;
+    width: 200px; /* 设置文本域宽度 */
+}
+
+.content-field textarea {
+    height: 200px; /* 内容框较大，提供更多空间 */
+    font-size: 14px;
+}
+
+.tag-field textarea {
+    height: 20px; /* Tag框较小 */
+    font-size: 12px;
+    font-weight: bold;
+    width: 200px;
+}
+
+
+.add-tag-button,
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.add-tag-button {
+    background-color: #f0f0f0;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.add-tag-button:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
