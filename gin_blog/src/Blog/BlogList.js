@@ -10,7 +10,7 @@ function BlogList() {
 
     // 新增点击博客项的处理函数
     const handleBlogClick = (blogId) => {
-        navigate(`/blog/list/${blogId}`);
+        navigate(`/blog/${blogId}`);
     };
 
     useEffect(() => {
@@ -23,7 +23,6 @@ function BlogList() {
             });
             if (response.ok) {
                 const data = await response.json();
-                console.log(data)
                 setBlogs(data); // 直接设置获取到的 JSON 数据
             }
         };
@@ -36,7 +35,7 @@ function BlogList() {
     return (
         <div className="blog-list-container">
             {blogs.map((blog) => (
-                <div key={blog.blogId} className="blog-item" onClick={() => handleBlogClick(blog.blogId)}>
+                <div key={blog.BlogId} className="blog-item" onClick={() => handleBlogClick(blog.BlogId)}>
                     <h3 className="blog-title">{blog.BlogTitle}</h3>
                     <p className="blog-content">{blog.BlogContent}</p>
                     <p className="blog-tags">标签: {blog.BlogTag}</p>
