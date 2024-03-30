@@ -6,6 +6,7 @@ import Logout from "./User/Logout";
 import CreateBlog from "./Blog/CreateBlog";
 import BlogList from "./Blog/BlogList";
 import BlogDetail from "./Blog/BlogDetail";
+import EditBlog from "./Blog/EditBlog";
 
 function App() {
     return (
@@ -32,12 +33,13 @@ function App() {
                 </nav>
                 {/* 使用Routes代替Switch */}
                 <Routes>
-                <Route path="/login" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/create" element={<CreateBlog />} />
                     <Route path="/listAll" element={<BlogList />} />
                     <Route path="/blog/:id" element={<BlogDetail />} />
+                    <Route path="/blog/edit/:id" element={<EditBlog />} />
                 </Routes>
             </div>
         </Router>

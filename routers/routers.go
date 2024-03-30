@@ -29,9 +29,9 @@ func SetupRouter() *gin.Engine {
 		// 新建博客的路由
 		BlogGroup.POST("/create", controller.BlogCreateHandler)
 		// 更新博客的路由
-		BlogGroup.POST("/update", controller.BlogUpdateHandler)
+		BlogGroup.POST("/update/id=:id", controller.BlogUpdateHandler)
 		// 删除博客的路由
-		BlogGroup.DELETE("/delete", controller.BlogDeleteHandler)
+		BlogGroup.DELETE("/delete/id=:id", controller.BlogDeleteHandler)
 		// 查看所有博客的路由
 		BlogGroup.GET("/list", controller.BlogGetAllHandler)
 		// 查看单个博客的路由

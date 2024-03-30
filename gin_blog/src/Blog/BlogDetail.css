@@ -1,0 +1,65 @@
+/* BlogDetail.css */
+.blog-detail-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    color: #333;
+}
+
+.article-section {
+    margin-bottom: 30px;
+}
+
+.article-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.article-content {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    white-space: pre-line; /* 保留内容中的换行 */
+}
+
+.article-tags {
+    font-size: 16px;
+    color: #007bff;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    color: #fff;
+}
+
+.edit-button {
+    background-color: #ffc107;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}

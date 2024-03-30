@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"fmt"
 	"gin_learn/dao"
 )
 
@@ -21,6 +22,30 @@ func CreateBlog(blog *Blog) (err error) {
 	err = dao.DB.Create(&blog).Error
 	if err != nil {
 		return errors.New("create blog error")
+	}
+	return nil
+}
+
+func UpdateBlog(blogId int, blog *Blog) (err error) {
+	fmt.Printf("正在更新数据...")
+	fmt.Printf("content:%v", blog.BlogContent)
+	// 根据ID更新
+	err = dao.DB.Debug().Model(&blog).Where("blog_id=?", blogId).Updates(map[string]interface{}{
+		"BlogTitle":   blog.BlogTitle,
+		"BlogContent": blog.BlogContent,
+		"BlogTag":     blog.BlogTag,
+	}).Error
+	if err != nil {
+		return errors.New("update blog error")
+	}
+	return nil
+}
+
+func DelBlog(blogId int) (err error) {
+	// 根据blog中的内容删除blog
+	err = dao.DB.Debug().Where("blog_id=?", blogId).Delete(&Blog{}).Error
+	if err != nil {
+		return errors.New("delete blog error")
 	}
 	return nil
 }
