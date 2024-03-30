@@ -1,0 +1,45 @@
+/* BlogList.css */
+.blog-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 给博客项之间添加一些间隔 */
+}
+
+.blog-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 添加轻微的阴影效果 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+    cursor: pointer; /* 指明可点击 */
+}
+
+.blog-item:hover {
+    transform: translateY(-5px); /* 悬停时向上移动 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 悬停时增加阴影 */
+}
+
+.blog-title {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.blog-content {
+    margin: 0 0 10px 0;
+    color: #666;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 限制显示的行数 */
+    -webkit-box-orient: vertical;
+}
+
+.blog-tags {
+    margin-top: 10px;
+    color: #007bff;
+    font-style: italic;
+}

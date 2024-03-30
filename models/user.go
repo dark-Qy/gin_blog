@@ -42,3 +42,21 @@ func GetUser(user *User) (err error) {
 	*user = userDB
 	return nil
 }
+
+// DelUser GetUser 获取一个用户信息
+func DelUser(user *User) (err error) {
+	var userDB User
+	err = dao.DB.Debug().Where("user_name=?", user.UserName).First(&userDB).Error
+	// 如果不存在该用户
+	if userDB.UserId == 0 {
+		return errors.New("user not found")
+	}
+	// 如果密码输入不正确
+	if userDB.Password != user.Password {
+		// 重新定义错误
+		return errors.New("incorrect password")
+	}
+	// 如果没有问题，正常删除即可，gorm需要指定主键删除
+	err = dao.DB.Debug().Where("user_id=?", userDB.UserId).Delete(&userDB).Error
+	return nil
+}
