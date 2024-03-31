@@ -7,6 +7,7 @@ import CreateBlog from "./Blog/CreateBlog";
 import BlogList from "./Blog/BlogList";
 import BlogDetail from "./Blog/BlogDetail";
 import EditBlog from "./Blog/EditBlog";
+import "./App.css"
 
 function App() {
     return (

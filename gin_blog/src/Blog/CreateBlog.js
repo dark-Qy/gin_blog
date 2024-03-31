@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 导入useNavigate钩子
 import './CreateBlog.css';
 
 
 function BlogPost() {
+    const navigate = useNavigate(); // 导入useNavigate钩子
     const [blog, setBlog] = useState({
         blogId: '',
         userId: '',
@@ -44,7 +46,8 @@ function BlogPost() {
             if (response.ok) {
                 const data = await response.json();
                 if (data.status ===0 ){
-                    alert(`博客创建成功！${data.blogTitle}`);
+                    alert(`博客创建成功！`);
+                    navigate(`/listAll`);
                 }
                 else{
                     alert(`创建失败！${data.error}`);
@@ -62,34 +65,40 @@ function BlogPost() {
     return (
         <form onSubmit={handleSubmit} className="form-container">
             <h2>新建博客</h2>
-            {/* 其他字段... */}
-            <div className="form-field title-field">
-                <textarea
+            <div className="form-field">
+                <label htmlFor="blogTitle">博客标题:</label>
+                <input
+                    type="text"
+                    id="blogTitle"
                     name="blogTitle"
                     value={blog.blogTitle}
                     onChange={handleChange}
                     placeholder="编写你的博客标题..."
-                ></textarea>
+                />
             </div>
-            <div className="form-field content-field">
+            <div className="form-field">
+                <label htmlFor="blogContent">博客内容:</label>
                 <textarea
+                    id="blogContent"
                     name="blogContent"
                     value={blog.blogContent}
                     onChange={handleChange}
                     placeholder="编写你的博客内容..."
                 ></textarea>
             </div>
-            <div className="form-field tag-field">
-                <textarea
+            <div className="form-field">
+                <label htmlFor="blogTag">标签:</label>
+                <input
+                    type="text"
+                    id="blogTag"
                     name="blogTag"
                     value={blog.blogTag}
                     onChange={handleChange}
                     placeholder="添加标签"
-                ></textarea>
+                />
             </div>
             <button type="submit" className="submit-button">提交</button>
         </form>
-
     );
 }
 

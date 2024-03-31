@@ -6,6 +6,11 @@ import './BlogDetail.css'; // 确保正确导入CSS文件
 function BlogDetail() {
     const [blog, setBlog] = useState(null);
     const [comments, setComments] = useState([]); // 用于存储评论列表
+    const [comment ,setComment] = useState({
+        blogId:'',
+        userName:'',
+        content:''
+    })
     const [newComment, setNewComment] = useState(''); // 用于绑定新评论的输入框
     const { id } = useParams();
     const navigate = useNavigate(); // 导入useNavigate钩子
@@ -31,7 +36,7 @@ function BlogDetail() {
             }
 
             // 获取评论的代码
-            const commentsResponse = await fetch(`/comment/list/${id}`, {
+            const commentsResponse = await fetch(`/comment/list/id=${id}`, {
                 headers: {
                     'Authorization': token
                 }
@@ -39,6 +44,7 @@ function BlogDetail() {
             if (commentsResponse.ok) {
                 const commentsData = await commentsResponse.json();
                 setComments(commentsData); // 假设后端直接返回评论列表
+                console.log(commentsData);
             }
         };
 
@@ -65,21 +71,30 @@ function BlogDetail() {
 
     const handleCommentSubmit = async (e) => {
         e.preventDefault();
+        const userName = localStorage.getItem("userName")
+        comment.content=newComment
+        comment.blogId=parseInt(id)
+        comment.userName=userName
+
         if (!newComment.trim()) return; // 防止提交空评论
 
-        const response = await fetch(`/comment/add/${id}`, {
+        const response = await fetch(`/comment/add`, {
             method: 'POST',
             headers: {
                 'Authorization': token,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ text: newComment }) // 假设后端需要的格式
+            body: JSON.stringify(comment) // 假设后端需要的格式
         });
+        console.log(JSON.stringify(comment))
 
         if (response.ok) {
-            const addedComment = await response.json(); // 获取添加的评论
-            setComments([...comments, addedComment]); // 更新评论列表
-            setNewComment(''); // 清空输入框
+            // 获取返回的data值
+            const data = await response.json(); // 获取添加的评论
+            if(data.status===0){
+                alert("评论成功!")
+                window.location.reload();
+            }
         } else {
             alert("评论提交失败，请重试！");
         }
@@ -96,6 +111,9 @@ function BlogDetail() {
                 <>
                     <div className="article-section article-title">
                         <h2>{blog.BlogTitle}</h2>
+                    </div>
+                    <div className="article-section article-user">
+                        <p>作者: {blog.UserName}</p>
                     </div>
                     <div className="article-section article-content">
                         <p>{blog.BlogContent}</p>
@@ -119,8 +137,8 @@ function BlogDetail() {
                         </form>
                         <div className="comments-list">
                             {comments.map((comment, index) => (
-                                <div key={index} className="comment-item">
-                                    <p>{comment.text}</p> {/* 假设评论对象有一个text属性 */}
+                                <div key={comment.commentId} className="comment-item">
+                                    <p><strong>{comment.userName}:</strong> {comment.content}</p>
                                 </div>
                             ))}
                         </div>

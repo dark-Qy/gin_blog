@@ -19,7 +19,7 @@ func BlogCreateHandler(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{"status": 2001, "error": err.Error()})
 	} else {
-		c.JSON(http.StatusOK, gin.H{"status": 0, "blogTitle": blog.BlogTitle})
+		c.JSON(http.StatusOK, gin.H{"status": 0, "blogId": blog.BlogId})
 	}
 }
 

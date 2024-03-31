@@ -45,7 +45,7 @@ func SetupRouter() *gin.Engine {
 		// 新建评论的路由
 		CommentGroup.POST("/add", controller.CommentAddHandler)
 		// 查看指定博客所有评论的路由
-		CommentGroup.GET("/list", controller.CommentGetHandler)
+		CommentGroup.GET("/list/id=:id", controller.CommentGetHandler)
 	}
 	return r
 }

@@ -17,6 +17,13 @@
     margin-bottom: 15px;
 }
 
+.article-user {
+    font-size: 20px;
+    color: #0056b3;
+    line-height: 1.6;
+    white-space: pre-line; /* 保留内容中的换行 */
+}
+
 .article-content {
     font-size: 18px;
     color: #666;
