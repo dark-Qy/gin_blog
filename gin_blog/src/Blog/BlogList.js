@@ -23,7 +23,12 @@ function BlogList() {
             });
             if (response.ok) {
                 const data = await response.json();
-                setBlogs(data); // 直接设置获取到的 JSON 数据
+                if (data.status === 2001) {
+                    // 使用alert函数显示成功信息
+                    alert(`查看博客失败！${data.error}`);
+                }else {
+                    setBlogs(data);
+                }
             }
         };
         // eslint-disable-next-line

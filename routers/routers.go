@@ -37,5 +37,15 @@ func SetupRouter() *gin.Engine {
 		// 查看单个博客的路由
 		BlogGroup.GET("/list/id=:id", controller.BlogGetAHandler)
 	}
+
+	// 注册评论相关的新建、删除、查看的路由
+	// 同时利用验证中间件来验证身份
+	CommentGroup := r.Group("comment").Use(toolkit.TokenAuthMiddleware())
+	{
+		// 新建评论的路由
+		CommentGroup.POST("/add", controller.CommentAddHandler)
+		// 查看指定博客所有评论的路由
+		CommentGroup.GET("/list", controller.CommentGetHandler)
+	}
 	return r
 }
