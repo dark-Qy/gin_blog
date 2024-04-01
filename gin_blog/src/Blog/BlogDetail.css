@@ -17,6 +17,13 @@
     margin-bottom: 15px;
 }
 
+.article-user {
+    font-size: 20px;
+    color: #0056b3;
+    line-height: 1.6;
+    white-space: pre-line; /* 保留内容中的换行 */
+}
+
 .article-content {
     font-size: 18px;
     color: #666;
@@ -63,3 +70,64 @@ button {
 .delete-button:hover {
     background-color: #c82333;
 }
+
+.comments-section {
+    margin-top: 40px;
+}
+
+.comments-section h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.comments-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    height: 100px; /* Adjustable based on preference */
+}
+
+.comments-section button {
+    width: auto;
+    padding: 10px 15px;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.comments-section button:hover {
+    background-color: #0056b3;
+}
+
+.delete-comment-button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #c82333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-comment-button:hover {
+    background-color: #c82333;
+}
+

@@ -43,3 +43,32 @@
     color: #007bff;
     font-style: italic;
 }
+
+.search-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 600px; /* 限制最大宽度 */
+    padding: 10px;
+    border: 4px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    margin-left: 10px; /* 与输入框保持一定间距 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+
