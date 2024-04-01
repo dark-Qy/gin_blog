@@ -49,6 +49,9 @@ function BlogPost() {
                     alert(`博客创建成功！`);
                     navigate(`/listAll`);
                 }
+                else if (data.status === 9001){
+                    alert(`请先登录`);
+                }
                 else{
                     alert(`创建失败！${data.error}`);
                 }

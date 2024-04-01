@@ -67,7 +67,7 @@ func BlogGetAllHandler(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{"status": 2001, "error": err.Error()})
 	} else {
-		c.JSON(http.StatusOK, blogList)
+		c.JSON(http.StatusOK, gin.H{"status": 0, "blogList": blogList})
 	}
 }
 
@@ -96,6 +96,6 @@ func BlogSearchHandler(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{"status": 2001, "error": err.Error()})
 	} else {
-		c.JSON(http.StatusOK, blogList)
+		c.JSON(http.StatusOK, gin.H{"status": 0, "blogList": blogList})
 	}
 }

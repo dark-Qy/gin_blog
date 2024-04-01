@@ -8,11 +8,12 @@ import BlogList from "./Blog/BlogList";
 import BlogDetail from "./Blog/BlogDetail";
 import EditBlog from "./Blog/EditBlog";
 import "./App.css"
+import HomePage from "./Homepage";
 
 function App() {
     return (
         <Router>
-            <div>
+            <div className="app-container">
                 <nav>
                     <ul>
                         <li>
@@ -32,15 +33,15 @@ function App() {
                         </li>
                     </ul>
                 </nav>
-                {/* 使用Routes代替Switch */}
                 <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/logout" element={<Logout />} />
-                    <Route path="/create" element={<CreateBlog />} />
-                    <Route path="/listAll" element={<BlogList />} />
-                    <Route path="/blog/:id" element={<BlogDetail />} />
-                    <Route path="/blog/edit/:id" element={<EditBlog />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/logout" element={<Logout/>}/>
+                    <Route path="/create" element={<CreateBlog/>}/>
+                    <Route path="/listAll" element={<BlogList/>}/>
+                    <Route path="/blog/:id" element={<BlogDetail/>}/>
+                    <Route path="/blog/edit/:id" element={<EditBlog/>}/>
                 </Routes>
             </div>
         </Router>

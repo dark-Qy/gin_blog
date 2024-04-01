@@ -29,7 +29,15 @@ function BlogList() {
             });
             if (response.ok) {
                 const data = await response.json();
-                setBlogs(data); // 假设后端返回的是一个博客列表
+                if(data.status === 0){
+                    setBlogs(data.blogList); // 假设后端返回的是一个博客列表
+                }
+                else if (data.status === 9001){
+                    alert(`请先登录`);
+                }
+                else {
+                    alert(`请先登录`);
+                }
             } else {
                 alert(`搜索失败: ${response.statusText}`);
             }
@@ -48,14 +56,20 @@ function BlogList() {
                     'Authorization': `${token}`
                 }
             });
+            console.log(JSON.stringify(response.status))
             if (response.ok) {
                 const data = await response.json();
-                if (data.status === 2001) {
-                    // 使用alert函数显示成功信息
-                    alert(`查看博客失败！${data.error}`);
-                }else {
-                    setBlogs(data);
+                if(data.status === 0){
+                    setBlogs(data.blogList); // 假设后端返回的是一个博客列表
                 }
+                else if (data.status === 9001){
+                    alert(`请先登录`);
+                }
+                else{
+                    alert(`查看失败！${data.error}`);
+                }
+            } else {
+                alert(`搜索失败: ${response.statusText}`);
             }
         };
         // eslint-disable-next-line

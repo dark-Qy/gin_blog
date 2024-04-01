@@ -2,6 +2,7 @@ package dao
 
 import (
 	"fmt"
+	"gin_learn/setting"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -15,15 +16,10 @@ var (
 	MySQLDb       string
 )
 
-func InitMySQL() (err error) {
-	MySQLUser = "root"
-	MySQLPassword = "123456"
-	MySQLPort = 3306
-	MySQLHost = "localhost"
-	MySQLDb = "gin_blog"
+func InitMySQL(cfg *setting.MySQLConfig) (err error) {
 	// 首先配置数据库连接设置
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		MySQLUser, MySQLPassword, MySQLHost, MySQLPort, MySQLDb)
+		cfg.User, cfg.Password, cfg.Host, cfg.Port, cfg.DB)
 	// 连接数据库
 	DB, err = gorm.Open("mysql", dsn)
 	if err != nil {

@@ -1,4 +1,31 @@
 /* App.css */
+.app-container {
+  text-align: center;
+}
+
+.app-header {
+  background-color: #f0f2f5;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.app-header img {
+  max-width: 60%;
+  height: auto;
+  margin: 20px 0;
+}
+
+
+.app-header h1 {
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.app-header p {
+  color: #666;
+  font-size: 16px;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;

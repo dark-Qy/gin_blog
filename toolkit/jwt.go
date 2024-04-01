@@ -1,7 +1,6 @@
 package toolkit
 
 import (
-	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -49,12 +48,12 @@ func TokenAuthMiddleware() gin.HandlerFunc {
 		// 如果有错误或者token无效
 		if err != nil || !token.Valid {
 			c.JSON(http.StatusOK, gin.H{
-				"err": "Invalid token",
+				"status": 9001,
+				"err":    "Invalid token",
 			})
 			c.Abort()
 			return
 		}
-		fmt.Printf("Auth验证成功")
 
 		c.Set("userId", claims.UserId)
 		c.Next()
