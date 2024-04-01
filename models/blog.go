@@ -68,3 +68,12 @@ func GetABlog(blogId int) (blog *Blog, err error) {
 	}
 	return
 }
+
+func SearchBlog(query string) (blogList []Blog, err error) {
+	// 查询包含指定关键词的博客
+	err = dao.DB.Debug().Where("blog_content LIKE ? OR blog_tag LIKE ? OR blog_title LIKE ?", "%"+query+"%", "%"+query+"%", "%"+query+"%").Find(&blogList).Error
+	if err != nil {
+		return nil, err
+	}
+	return blogList, nil
+}

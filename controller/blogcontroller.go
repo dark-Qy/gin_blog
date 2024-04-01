@@ -86,3 +86,16 @@ func BlogGetAHandler(c *gin.Context) {
 		c.JSON(http.StatusOK, blog)
 	}
 }
+
+func BlogSearchHandler(c *gin.Context) {
+	query, ok := c.Params.Get("query")
+	if !ok {
+		c.JSON(http.StatusOK, gin.H{"status": 2001, "error": "invalid query"})
+	}
+	blogList, err := models.SearchBlog(query)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{"status": 2001, "error": err.Error()})
+	} else {
+		c.JSON(http.StatusOK, blogList)
+	}
+}

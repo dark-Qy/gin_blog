@@ -36,6 +36,8 @@ func SetupRouter() *gin.Engine {
 		BlogGroup.GET("/list", controller.BlogGetAllHandler)
 		// 查看单个博客的路由
 		BlogGroup.GET("/list/id=:id", controller.BlogGetAHandler)
+		// 博客关键词搜索
+		BlogGroup.GET("/search/query=:query", controller.BlogSearchHandler)
 	}
 
 	// 注册评论相关的新建、删除、查看的路由
