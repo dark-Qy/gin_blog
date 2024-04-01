@@ -18,10 +18,10 @@
 
 ### 可能使用的相关技术
 
-- **Web框架**：选择一个Go的Web框架，如**`Gin`**或**`Echo`**，用于处理HTTP请求和路由。
-- **模板引擎**：使用**`html/template`**（Go标准库）或选定Web框架自带的模板引擎，用于生成动态HTML页面。
-- **数据库**：选择**`SQLite`**, **`MySQL`**, 或 **`PostgreSQL`**等数据库进行数据持久化存储。你可能会用到**`database/sql`**标准库或第三方ORM库（如**`gorm`**）来操作数据库。
-- **用户认证**：考虑使用**`JWT`**（JSON Web Tokens）实现认证机制。
+- **Web框架**：选择一个Go的Web框架，如`Gin`或`Echo`，用于处理HTTP请求和路由。
+- **模板引擎**：使用`html/template`（Go标准库）或选定Web框架自带的模板引擎，用于生成动态HTML页面。
+- **数据库**：选择`SQLite`, `MySQL`, 或 `PostgreSQL`等数据库进行数据持久化存储。你可能会用到`database/sql`标准库或第三方ORM库（如`gorm`）来操作数据库。
+- **用户认证**：考虑使用`JWT`（JSON Web Tokens）实现认证机制。
 - **静态文件服务**：提供CSS、JavaScript和图片等静态资源的服务。
 - **中间件**：使用或自定义中间件处理跨站请求伪造（CSRF）、日志记录、用户认证等。
 
