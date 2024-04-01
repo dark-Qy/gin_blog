@@ -46,6 +46,8 @@ func SetupRouter() *gin.Engine {
 		CommentGroup.POST("/add", controller.CommentAddHandler)
 		// 查看指定博客所有评论的路由
 		CommentGroup.GET("/list/id=:id", controller.CommentGetHandler)
+		// 删除指定的评论
+		CommentGroup.DELETE("/delete/id=:id", controller.CommentDeleteHandler)
 	}
 	return r
 }

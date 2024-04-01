@@ -116,3 +116,18 @@ button {
 .comments-section button:hover {
     background-color: #0056b3;
 }
+
+.delete-comment-button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #c82333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-comment-button:hover {
+    background-color: #c82333;
+}
+

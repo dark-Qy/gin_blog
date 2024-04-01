@@ -5,6 +5,8 @@ import './BlogList.css';
 function BlogList() {
     const [blogs, setBlogs] = useState([]);
     const navigate = useNavigate(); // 使用useNavigate钩子
+    // 存储用户的搜索输入
+    const [searchTerm, setSearchTerm] = useState('');
     // 从本地获取存储的token令牌
     const token = localStorage.getItem("token")
 

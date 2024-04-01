@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"fmt"
 	"gin_learn/dao"
 )
 
@@ -27,6 +28,15 @@ func GetComment(id int, commentList *[]Comment) (err error) {
 	err = dao.DB.Debug().Where("blog_id=?", id).Find(&commentList).Error
 	if err != nil {
 		return errors.New("get comment error")
+	}
+	return nil
+}
+
+func DelComment(idiot int) (err error) {
+	fmt.Printf("id = %v", idiot)
+	err = dao.DB.Debug().Where("comment_id=?", idiot).Delete(&Comment{}).Error
+	if err != nil {
+		return errors.New("delete comment error")
 	}
 	return nil
 }

@@ -6,6 +6,7 @@ import './BlogDetail.css'; // 确保正确导入CSS文件
 function BlogDetail() {
     const [blog, setBlog] = useState(null);
     const [comments, setComments] = useState([]); // 用于存储评论列表
+    // eslint-disable-next-line
     const [comment ,setComment] = useState({
         blogId:'',
         userName:'',
@@ -100,6 +101,25 @@ function BlogDetail() {
         }
     };
 
+    const handleCommentDelete = async (commentId) => {
+        if (window.confirm("确定要删除这条评论吗？")) {
+            const response = await fetch(`/comment/delete/id=${commentId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': token,
+                },
+            });
+            if (response.ok) {
+                alert("评论删除成功！");
+                // 更新评论列表，移除已删除的评论
+                window.location.reload();
+            } else {
+                alert("删除评论失败，请重试！");
+            }
+        }
+    };
+
+
 
     const handleEdit = () => {
         navigate(`/blog/edit/${id}`); // 假设你有一个博客编辑页面
@@ -139,6 +159,9 @@ function BlogDetail() {
                             {comments.map((comment, index) => (
                                 <div key={comment.commentId} className="comment-item">
                                     <p><strong>{comment.userName}:</strong> {comment.content}</p>
+                                    <button onClick={() => handleCommentDelete(comment.commentId)}
+                                            className="delete-comment-button">删除评论
+                                    </button>
                                 </div>
                             ))}
                         </div>
