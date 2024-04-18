@@ -12,7 +12,7 @@ type Blog struct {
 	BlogId      int    `form:"blogId" gorm:"PRIMARY_KEY;AUTO_INCREMENT"`
 	BlogTitle   string `form:"blogTitle"`
 	User        User   `form:"user" gorm:"foreignKey:UserId"` // 注意调整字段名和外键
-	UserName    int    `form:"userName"`                      // 用于存储User的外键                         // 用于存储User的外键
+	UserName    string `form:"userName"`                      // 用于存储User的外键                         // 用于存储User的外键
 	BlogContent string `form:"blogContent" gorm:"type:text"`
 	BlogTag     string `form:"blogTag"` // 考虑改进标签存储方式
 }
