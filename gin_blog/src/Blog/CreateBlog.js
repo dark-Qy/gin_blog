@@ -36,6 +36,10 @@ function BlogPost() {
         formData.append('blogTag', blog.blogTag);
 
         try {
+            // Assuming formData is already defined and populated
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
             const response = await fetch('/blog/create', {
                 method: 'POST',
                 body: formData,

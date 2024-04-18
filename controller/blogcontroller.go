@@ -11,6 +11,7 @@ import (
 func BlogCreateHandler(c *gin.Context) {
 	var blog models.Blog
 	err := c.ShouldBind(&blog)
+
 	if err != nil {
 		println(err.Error())
 		return
